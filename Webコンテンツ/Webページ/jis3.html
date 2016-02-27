@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>自宅でUbuntuに仮想OS Debianを入れる</title>
+    <meta charset="UTF-8">
+    <meta name="auther" content="e15007">
+    <meta name="description" content="ubuntu15.10に仮想Webサーバ環境を構築">
+    <meta name="keywords" content="ubuntu,virtualbox,仮想OS">
+    <style>
+ul.nav li.dropdown:hover > ul.dropdown-menu {  
+    /* マウスオーバーでドロップダウンメニュー*/
+
+  display: block; 
+  }   
+
+    .jumbotron {
+        background-color: blue;
+        color: #fff;
+         margin-top: 20px;
+         }
+
+        h1{
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .box{
+           text-align: center;
+           margin:80px auto;
+        }
+
+        .img-responsive-overwrite{
+            margin:0 auto;
+        }
+
+        .mes{
+        text-align: center;
+        margin:2cm;
+    }
+
+        .link{
+            text-align: center;
+            margin:2cm;
+            font-size:18px;
+        }
+
+          footer {
+        background-color: blue;
+        line-height:4 ;
+        color:white;
+        text-align: center;
+        height: 60px;
+        margin-bottom: 0px;
+
+
+    }
+    footer small{
+        font-size: 100%;
+    }
+    </style>
+    
+</head>
+
+<body>
+<!-- ナビゲーションメニューはじめ  navbar-fixed-top はナビを上に固定する   Bootstrap-->
+    <nav class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".target">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="jis.html">OS仮想化</a>
+        </div>
+        <div class="collapse navbar-collapse target">
+            <ul class="nav navbar-nav">
+                <li><a href="jis.html" title="">TOP</a></li>
+                <li class="activ"><a href="" title="">掲示板</a></li>
+                <!--ドロップダウンメニュー -->
+                <li class="dropdown" data-dropdown="dropdown" class="activ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <div class="menu">ページ一覧 <b class="caret"></b></div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="jis.html">TOP</a></li>
+                        <li><a href="jis2.html">ページ２</a></li>
+                        <li><a href="jis3.html">ページ３</a></li>
+                       <!--  <li class="divider"></li>
+                        <li></li>
+                        <li></li> -->
+                    </ul>
+                    <li class="activ">
+                        <a href="" title=""></a>
+                    </li>
+                    <li class="activ">
+                        <a href="" title=""></a>
+                    </li>
+                    <li class="activ">
+                        <a href="" title=""></a>
+                    </li>
+            </ul>
+        </div>
+        </div>
+    </nav><!-- ナビゲーション ここまで-->
+    <header class="jumbotron"><!--header Bootstrapテンプレート-->
+        <div class="container">
+            <h1>自宅で仮想マシンを使ってWeサイト制作</h1>
+        </div>
+    </header>
+    <!-- /header ここまで-->
+    <main class="container">
+            <section>
+                <ol class="bg-info">
+                    <strong>目次</strong>
+                    <li><a href="jis.html">
+                        ubuntu15.10にVirtualbox パッケージダウンロードとインストール
+                    </a></li>
+                    <li><a href="jis2.html">仮想OSdebianをインストールするため仮想マシンを構築</a></li>
+                    <li><strong>仮想マシンのネットワーク設定</strong></li>
+                </ol>
+            </section>
+            <article>
+            <h1>仮想マシンのネットワーク設定</h1>
+                <section class="box">
+                    <h2>
+                        1.VirtualBoxの管理画面からdevianを選択し設定ボタンをクリックし、ネットワーク設定を選ぶ
+                    </h2>
+                    <img src="ri10.png" alt="" class="img-responsive img-responsive-overwrite" width="600">
+                </section>
+
+                <section class="box">
+                    <h2>
+                        
+                    2.アダプタ１をNATに設定
+                    </h2>
+                     <img src="ri11.png" alt="" class="img-responsive img-responsive-overwrite" width="600">
+                </section>
+                <section class="box">
+                <h2>
+                3.アダプタ２をホストオンリーアダプタに設定<br>
+                    ※追加できない時の対処法 VirtualBoxメニューバーのファイル→環境設定→ネットワーク<br>→ホストオンリーネットワーク→右端の+アイコンをクリック
+                </h2>
+                <img src="ri12.png" alt="" class="img-responsive img-responsive-overwrite" width="600">
+                    <h2>
+                        vartiualbox が仮想ルータとなりホストOS ゲストOSだけのネットワークを作る<br> IPV4にゲストosのアドレスを設定<br>
+                        ゲストOSには/etc/network/interface をviで編集<br>
+                        auto eth1<br> 
+                        iface eth1 inet static <br>
+                        address 192.168.33.10 <br>
+                        netmask 255.255.255.0 <br>
+                        gateway 192.168.55.100 
+                        を追加 <br>
+                        sudo  service networking restartを実行
+                    </h2>
+                    <img src="ri13.png" alt=""  class="img-responsive img-responsive-overwrite" width="600">
+                </section>
+                
+
+            <h3 class="mes">これで仮想マシンのネットワーク設定は完了です。</h3>
+
+            <section class ="link">
+                <a href="jis2.html">前へ</a>
+            </section>
+            </article>
+    </main>
+    <footer class="footer">
+       <div class="container">
+        
+        <small>&copy; copyright2015 e15007</small>
+       </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) Bootstrap用-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed Bootstrap用-->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
