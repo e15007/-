@@ -1,6 +1,6 @@
 public class Kouyaku {
 	public static void main (String arg[]) {
-              //変数宣言
+
 		int first = 21;
 		int sec = 12;
 		int a =0 ;
